@@ -37,6 +37,9 @@ export class TodosService {
 
   async remove(id: number): Promise<void> {
     const todo = await this.repo.findOneBy({ id });
+    if (!todo) {
+      throw new NotFoundException('Todo not found');
+    }
     await this.repo.remove(todo);
   }
 }
