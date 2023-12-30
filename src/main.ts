@@ -16,7 +16,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setBasePath('v1')
     .setTitle('TODO App API')
-    .setDescription('The TODO App API description')
+    .setDescription('written by Quy Dep Trai')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
