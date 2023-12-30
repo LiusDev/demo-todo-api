@@ -1,6 +1,6 @@
 import { IsString } from 'class-validator';
 
-export class CreateTodoDto {
+export class UpdateTodoDto {
   @IsString()
   title: string;
 
