@@ -9,11 +9,12 @@ import {
   Res,
   HttpStatus,
   HttpCode,
+  Query,
 } from '@nestjs/common';
 import { TodosService } from './todos.service';
 import { CreateTodoDto } from './dtos/create-todo.dto';
 import { UpdateTodoDto } from './dtos/update-todo.dto';
-import { ApiBody, ApiNoContentResponse, ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 import { Response } from 'express';
 
 @ApiTags('todos')
@@ -22,8 +23,17 @@ export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
   @Get()
-  async findAll() {
-    return await this.todosService.findAll();
+  async findAll(
+    @Query()
+    query: {
+      title?: string;
+      page?: string;
+      perPage?: string;
+      sortBy?: string;
+      order?: string;
+    },
+  ) {
+    return await this.todosService.findAll(query);
   }
 
   @Get(':id')

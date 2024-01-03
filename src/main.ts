@@ -14,7 +14,6 @@ async function bootstrap() {
   app.setGlobalPrefix('v1');
 
   const config = new DocumentBuilder()
-    .setBasePath('v1')
     .setTitle('TODO App API')
     .setDescription('written by Quy Dep Trai')
     .setVersion('1.0')
