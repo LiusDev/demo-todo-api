@@ -36,6 +36,11 @@ export class TodosController {
     return await this.todosService.findAll(query);
   }
 
+  @Get('count')
+  async count(@Query() query: { title?: string }) {
+    return await this.todosService.count(query);
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: number) {
     return await this.todosService.findOne(id);

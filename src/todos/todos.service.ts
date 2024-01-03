@@ -39,6 +39,14 @@ export class TodosService {
     });
   }
 
+  async count({ title }: { title?: string }): Promise<number> {
+    return await this.repo.count({
+      where: {
+        title: Like(`%${title || ''}%`),
+      },
+    });
+  }
+
   async findOne(id: number): Promise<Todo> {
     const todo = await this.repo.findOneBy({ id });
     if (!todo) {
